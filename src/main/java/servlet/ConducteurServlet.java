@@ -51,15 +51,17 @@ public class ConducteurServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String tel = request.getParameter("tel");
 		
+		ConducteurDao condACreer = new ConducteurDao();
+		Conducteur cond = new Conducteur(nom, prenom, email, tel);
+		
 		request.setAttribute("nom", nom);
 		request.setAttribute("prenom", prenom);
 		request.setAttribute("email", email);
 		request.setAttribute("tel", tel);
 		
-		ConducteurDao condACreer = new ConducteurDao();
-		Conducteur cond = new Conducteur(nom, prenom, email, tel);
-		request.setAttribute("conducteurSaisi", condACreer.create(cond));
-		//request.getMethod().equals("post");
+		
+		request.setAttribute("ajout", condACreer.create(cond));
+		
 		doGet(request, response);
 		request.getRequestDispatcher("View/Conducteur.jsp").forward(request, response);
 		

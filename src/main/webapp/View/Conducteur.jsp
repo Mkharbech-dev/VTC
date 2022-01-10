@@ -1,15 +1,16 @@
 <c:import url="Header.jsp"></c:import>
 
-
 	<div id="msg">
-		<p class="status" ></p>
+	<div id="alert alert success-danger" role="alert">
+		Le conducteur<i><c:out value ="${prenom }-${nom }"></c:out></i>a ete ajouté
+	</div>
 	</div>
 
 
 
-<div class= "toto">
+<div class= "">
 	<c:if test="${!empty conducteurs}">
-		<table class="table table-dark table-hover mt-2">
+		<table class="table table-dark table-hover mt-2 mb-2">
 			  <thead>
 			    <tr>
 			      <th scope="col">id</th>
@@ -30,13 +31,13 @@
 				      <td><c:out value="${item.email }"></c:out></td>
 				      <td><c:out value="${item.tel }"></c:out></td>
 				      <td><a><img alt="" src="img/update.png" style= "width:40px; height:40px"></a> </td>
-				      <td><a  onclick= "return confirm('Etes-vous sur ?')"><img alt="" src="img/delete.png" style= "width:40px; height:40px"> </a></td>
+				      <td><a  onclick= "return confirm('Etes-vous sur de supprimer <c:out value="${item.nom } ${item.prenom } ?" ></c:out>')"><img alt="" src="img/delete.png" style= "width:40px; height:40px"> </a></td>
 				    </tr>
 			    </c:forEach>
 			  </tbody>
 		</table>
 	</c:if>
-	<div class="container  p-3" >
+	<div class="container  p-3 toto" >
 	    <form class="form" method="post" id="my-form" action="<%= request.getContextPath() %>/conducteur" onsubmit="return envoyer(event);">
 	        <div class="row">
 		        <div class="mb-3 col">
@@ -70,7 +71,7 @@
 
 	<script>
 		setTimeout(function(){
-			document.querySelector('#msg').innerHTML= '';
+			document.querySelector('#msg').innertHTML='';
 		},5000);
 	</script>
 	

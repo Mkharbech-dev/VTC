@@ -50,9 +50,7 @@ function envoyer(event){
     }
     
     
-        document.querySelector('.status').innerHTML = "Merci de m'avoir contacté M ";
-        document.querySelector('.status').classList.add('success'); 
-        
+       
       /*  setTimeout(function(){
 			document.querySelector('#msg').innerHTML= '';
 		},5000);*/  
@@ -65,10 +63,10 @@ var regexTel = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
 tel.addEventListener("keyup", function() {
     if (!regexTel.test(tel.value)) {
         tel.focus();
-        document.querySelector("#errorTel").innerHTML = '<p style="color:red">Merci de ne pas saisir de lettres ou format incorrect</p>';
+        document.querySelector("#errorTel").innerText = '<p style="color:red">Merci de ne pas saisir de lettres ou format incorrect</p>';
         return false;
     }else {
-        document.querySelector("#errorTel").innerHTML = ''; 
+        document.querySelector("#errorTel").innerText = ''; 
     }
 })
 
@@ -99,6 +97,13 @@ tel.addEventListener("keyup", function() {
             return false;
         }
     }
+    
+    
+    function ajout(){
+	 	document.querySelector('.status').innerText = "Merci de m'avoir contacté M ";
+        document.querySelector('.status').classList.add('success'); 
+        
+	}
 
     
   /*  function confirmPass() {
