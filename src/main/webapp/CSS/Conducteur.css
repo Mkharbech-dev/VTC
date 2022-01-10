@@ -1,0 +1,19 @@
+
+.toto{
+	background: orange;
+}
+
+.status{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.status.success{
+    background: greenyellow;
+   
+}
+
+
